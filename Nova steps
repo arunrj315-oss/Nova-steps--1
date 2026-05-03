@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaSteps - Fresh Finds, Best Prices</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Initialize EmailJS with Public Key. Replace with your actual key when using.
+            emailjs.init({
+                publicKey: "YOUR_PUBLIC_KEY",
+            });
+        })();
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-store text-blue-600 text-2xl"></i>
+                <span class="text-2xl font-bold text-gray-800 tracking-tight">NovaSteps</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#products" class="text-gray-600 hover:text-blue-600 font-medium hidden md:block transition">Shop</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium hidden md:block transition">Contact</a>
+                <button onclick="openCartModal()" class="relative bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition">
+                    <i class="fa-solid fa-shopping-cart text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-[450px] flex items-center justify-center text-center px-4" 
+             style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.ibb.co/xtf8nVhk/a-row-of-shoes-on-a-shelf-in-a-shoe-store-photo.jpg') center/cover no-repeat;">
+        <div class="max-w-3xl text-white">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Step Up Your Style with NovaSteps</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8">Fresh Finds, Best Prices. Discover the best collection of modern footwear and accessories.</p>
+            <a href="#products" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <section id="products" class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Our Collection</h2>
+        
+        <div class="flex overflow-x-auto space-x-6 pb-6 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200" id="carousel">
+            
+            <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <img src="https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png" alt="Classic Runner Shoes" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Classic Runner Shoes</h3>
+                        <p class="text-gray-500 text-sm mb-4">Premium comfort for your daily stride.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-2xl font-bold text-blue-600">$49.99</span>
+                            <span class="text-yellow-500 text-sm"><i class="fa-solid fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="addToCart('Classic Runner Shoes', 49.99, 'https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <img src="https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png" alt="Modern Urban Sneakers" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Modern Urban Sneakers</h3>
+                        <p class="text-gray-500 text-sm mb-4">Sleek, stylish, and built for the streets.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-2xl font-bold text-blue-600">$59.99</span>
+                            <span class="text-yellow-500 text-sm"><i class="fa-solid fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="addToCart('Modern Urban Sneakers', 59.99, 'https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <img src="https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png" alt="Sporty Cross Trainers" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sporty Cross Trainers</h3>
+                        <p class="text-gray-500 text-sm mb-4">High performance training shoes.</p>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-2xl font-bold text-blue-600">$64.99</span>
+                            <span class="text-yellow-500 text-sm"><i class="fa-solid fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="addToCart('Sporty Cross Trainers', 64.99, 'https://i.ibb.co/R8MqyZK/IMG-20260424-211451.png')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="https://wa.me/999" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition flex items-center justify-center z-30 animate-bounce">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <div id="cartModal" class="fixed inset-0 bg-black/50 z-50 flex justify-end hidden transition-opacity duration-300">
+        <div class="w-full max-w-md bg-white h-full shadow-2xl flex flex-col p-6 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Your Shopping Cart</h3>
+                <button onclick="closeCartModal()" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            
+            <div id="cartItems" class="flex-grow space-y-4 divide-y divide-gray-100 overflow-y-auto max-h-[280px]">
+                <p class="text-gray-500 text-center py-8">Your cart is empty.</p>
+            </div>
+            
+            <div class="border-t pt-6 mt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-bold text-gray-700 text-lg">Total:</span>
+                    <span id="cartTotal" class="font-bold text-blue-600 text-xl">$0.00</span>
+                </div>
+                
+                <form id="orderForm" onsubmit="sendOrder(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                        <input type="text" id="customerName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="customerPhone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="+1234567890">
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition mt-2">
+                        Send Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact" class="bg-gray-800 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4">NovaSteps</h4>
+                <p class="text-sm">Fresh Finds, Best Prices. High-quality collections at affordable prices to help you find your perfect fit.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4">Contact Us</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-solid fa-envelope mr-2"></i> NovaSteps1@gmail.com</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +123 456 7890</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4">Follow Us</h4>
+                <div class="flex justify-center md:justify-start space-x-4 text-xl">
+                    <a href="#" class="hover:text-blue-400"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-pink-400"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/999" class="hover:text-green-400"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-sm border-t border-gray-700 mt-12 pt-6">
+            &copy; 2026 NovaSteps. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+            updateCartDisplay();
+            openCartModal();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty.</p>';
+                cartTotal.textContent = '$0.00';
+                return;
+            }
+
+            let itemsHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                itemsHTML += `
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border">
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-800">${item.name}</h4>
+                                <p class="text-xs text-gray-500">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm font-bold text-gray-800">$${itemTotal.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-600"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartTotal.textContent = '$' + total.toFixed(2);
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function sendOrder(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+
+            let itemsListStr = '';
+            let totalAmount = 0;
+            
+            cart.forEach(item => {
+                itemsListStr += `Item: ${item.name} | Qty: ${item.quantity} | Price: $${(item.price * item.quantity).toFixed(2)}\n`;
+                totalAmount += item.price * item.quantity;
+            });
+
+            const templateParams = {
+                customer_name: customerName,
+                customer_phone: customerPhone,
+                items_list: itemsListStr,
+                total: '$' + totalAmount.toFixed(2),
+                owner_email: 'NovaSteps1@gmail.com'
+            };
+
+            // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your actual EmailJS configurations.
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                   alert('Order successfully placed and sent to NovaSteps!');
+                   cart = [];
+                   updateCartDisplay();
+                   closeCartModal();
+                }, function(error) {
+                   alert('Failed to send order. Please check your EmailJS configurations.');
+                   console.error('FAILED...', error);
+                });
+        }
+    </script>
+</body>
+</html>
